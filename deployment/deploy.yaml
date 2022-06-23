@@ -22,9 +22,9 @@ steps:
       branch: ["production"]
 
   - name: test
-      plugin: shell
-      settings:
-        command: echo "hello world - test amd64"
+    plugin: shell
+    settings:
+      command: echo "hello world - test amd64"
 
   - name: grep_env
     plugin: grep_env
