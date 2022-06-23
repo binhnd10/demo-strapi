@@ -1,37 +1,74 @@
-branch_env_mappings:
-  - "main": "prod"
-  - "production": "prod"
-  - "master": "prod"
-  - "development": "dev"
 envs:
   dev:
     - CPU: 256
     - MEMORY: 512
     - DISK_SIZE: 20
     - TASK_COUNT: 1
+    - DB_USERNAME: root
+    - DB_PASSWORD: remote_credential("DB_PASSWORD_DEV")
+    - SLACK_CHANNEL: remote_env("SLACK_CHANNEL")
   prod:
     - CPU: 512
     - MEMORY: 1024
     - DISK_SIZE: 50
     - TASK_COUNT: 2
 steps:
-  build:
-    context: "./docker/docker_cloud"
-    dockerfile: Dockerfile
-    args:
-      - name: "sample"
-    commands:
-      prebuild: bash ./deployment/prebuild.sh
-      postbuild: echo "build successfully"
-  deploy:
-    ports:
-      - ${PORT}:${PORT}
-    args:
-  run_service:
-    cpu: ${CPU}
-    ram: ${MEMORY}
-    disk:
-      size: ${DISK_SIZE}
-    task_count: ${TASK_COUNT}
-    use_spot: true
+  - name: slack_notify_when_start
+    plugin: slack
+    settings:
+      channel: ${SLACK_CHANNEL}
+      message: "Start build on brach: ${GIT_BRANCH} repo: ${GIT_REPO}"
+    when:
+      branch: ["production"]
 
+  - name: test
+      plugin: shell
+      settings:
+        command: echo "hello world - test amd64"
+
+  - name: grep_env
+    plugin: grep_env
+    settings:
+      rename: [ ".env.cloud", ".env" ]
+      grep_source: ".env"
+
+  - name: build_image
+    plugin: docker
+    settings:
+      context: "./docker/docker_cloud"
+      dockerfile: Dockerfile
+      args:
+        - name: "sample"
+      commands:
+        prebuild: bash ./deployment/prebuild.sh
+        postbuild: echo "build successfully"
+
+  - name: push_image
+    plugin: fs_push_image
+    settings:
+      args:
+
+  - name: deploy_service
+    plugin: fs_deploy
+    settings:
+      cpu: ${CPU}
+      ram: ${MEMORY}
+      disk:
+        size: ${DISK_SIZE}
+      ports:
+        - ${PORT}:${PORT}
+      task_count: ${TASK_COUNT}
+      use_spot: true
+
+  - name: notify_when_failure
+    plugin: slack
+    settings:
+      channel: ${SLACK_CHANNEL}
+      message: "Start build on brach: ${GIT_BRANCH} repo: ${GIT_REPO}"
+    when: ["failure"]
+
+branch_env_mappings:
+  - "main": "prod"
+  - "production": "prod"
+  - "master": "prod"
+  - "development": "dev"
