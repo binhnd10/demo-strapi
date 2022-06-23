@@ -24,7 +24,7 @@ steps:
   - name: test
     plugin: shell
     settings:
-      command: echo "hello world - test amd64"
+      command: echo "hello world - test amd64" && pwd
 
   - name: grep_env
     plugin: grep_env
@@ -44,7 +44,7 @@ steps:
         postbuild: echo "build successfully"
 
   - name: push_image
-    plugin: fs_push_image
+    plugin: fs_container_registry
     settings:
       args:
 
