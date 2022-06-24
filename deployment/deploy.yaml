@@ -33,20 +33,20 @@ steps:
       grep_source: ".env"
 
   - name: build_and_push_image
-    plugin: fs_integrate
+    plugin: fs_docker
     settings:
-      build_image:
+      build:
         context: "./docker/docker_cloud"
         dockerfile: Dockerfile
         containername: demo_strapi
         args:
           - name: "sample"
-      publish_image:
+      push:
         access_key:
         secret_key:
         registry: docker.io
         repo: demo_strapi/dev
-        tag: latest
+        tags: [latest]
 
   - name: deploy_service
     plugin: fs_deploy
