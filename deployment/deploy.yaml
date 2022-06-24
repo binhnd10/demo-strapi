@@ -38,7 +38,7 @@ steps:
       build:
         context: "./docker/docker_cloud"
         dockerfile: Dockerfile
-        containername: demo_strapi
+        image_name: demo_strapi
         args:
           - name: "sample"
       push:
