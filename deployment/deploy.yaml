@@ -36,8 +36,8 @@ steps:
     plugin: fs_docker
     settings:
       build:
-        context: "./docker/docker_cloud"
-        dockerfile: Dockerfile
+        context: .
+        dockerfile: ./docker/docker_cloud/Dockerfile
         image_name: demo_strapi
         args:
           - name: "sample"
