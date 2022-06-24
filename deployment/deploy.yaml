@@ -32,21 +32,21 @@ steps:
       rename: [ ".env.cloud", ".env" ]
       grep_source: ".env"
 
-  - name: build_image
-    plugin: docker
+  - name: build_and_push_image
+    plugin: fs_integrate
     settings:
-      context: "./docker/docker_cloud"
-      dockerfile: Dockerfile
-      args:
-        - name: "sample"
-      commands:
-        prebuild: bash ./deployment/prebuild.sh
-        postbuild: echo "build successfully"
-
-  - name: push_image
-    plugin: fs_container_registry
-    settings:
-      args:
+      build_image:
+        context: "./docker/docker_cloud"
+        dockerfile: Dockerfile
+        containername: demo_strapi
+        args:
+          - name: "sample"
+      publish_image:
+        access_key:
+        secret_key:
+        registry: docker.io
+        repo: demo_strapi/dev
+        tag: latest
 
   - name: deploy_service
     plugin: fs_deploy
