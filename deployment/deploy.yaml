@@ -46,7 +46,7 @@ steps:
         secret_key:
         registry: docker.io
         repo: demo_strapi/dev
-        tags: [latest]
+        tags: latest
 
   - name: deploy_service
     plugin: fs_deploy
