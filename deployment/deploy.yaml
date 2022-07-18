@@ -42,8 +42,8 @@ steps:
         args:
           - name: "sample"
       push:
-        access_key:
-        secret_key:
+        username: dinhbinh161
+        password: Haiduong95!
         registry: docker.io
         repo: dinhbinh161/demo_strapi
         tag: latest
