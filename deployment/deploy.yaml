@@ -26,11 +26,11 @@ steps:
     settings:
       command: echo "hello world - test amd64" && pwd
 
-  - name: grep_env
-    plugin: grep_env
+  - name: inject_env
+    plugin: inject_env
     settings:
       rename: [ ".env.cloud", ".env" ]
-      grep_source: ".env"
+      inject_file: ".env"
 
   - name: build_and_push_image
     plugin: fs_docker
