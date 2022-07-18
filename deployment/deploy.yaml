@@ -45,7 +45,7 @@ steps:
         access_key:
         secret_key:
         registry: docker.io
-        repo: demo_strapi/dev
+        repo: dinhbinh161/demo_strapi
         tag: latest
 
   - name: deploy_service
