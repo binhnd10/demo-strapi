@@ -1,7 +1,6 @@
 envs:
   dev:
-    - CPU: 256
-    - MEMORY: 512
+    - MEMORY: 0.5
     - DISK_SIZE: 20
     - TASK_COUNT: 1
     - DB_USERNAME: root
@@ -51,7 +50,8 @@ steps:
   - name: deploy_service
     plugin: fs_deploy
     settings:
-      cpu: ${CPU}
+#      type: 'ec2|lambda|ecs|on_premise|k8s'
+      type: 'ec2'
       ram: ${MEMORY}
       disk:
         size: ${DISK_SIZE}
@@ -59,6 +59,11 @@ steps:
         - ${PORT}:${PORT}
       task_count: ${TASK_COUNT}
       use_spot: true
+
+  - name: release
+    plugin: fs_release
+    settings:
+      use_alb: true
 
   - name: notify_when_failure
     plugin: slack
