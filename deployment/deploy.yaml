@@ -55,10 +55,8 @@ steps:
       ram: ${MEMORY}
       disk:
         size: ${DISK_SIZE}
-      ports:
-        - ${PORT}:${PORT}
-      task_count: ${TASK_COUNT}
       use_spot: true
+      command: 'docker login -u dinhbinh161 -p Haiduong95! && docker run --rm --name demo_strapi -p 1337:1337 dinhbinh161/demo_strapi'
 
   - name: release
     plugin: fs_release
