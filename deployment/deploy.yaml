@@ -2,7 +2,7 @@ envs:
   dev:
     - MEMORY: 0.5
     - DISK_SIZE: 20
-    - TASK_COUNT: 1
+    - TASK_COUNT: 2
     - DB_USERNAME: root
     - DB_PASSWORD: remote_credential("DB_PASSWORD_DEV")
     - SLACK_CHANNEL: remote_env("SLACK_CHANNEL")
