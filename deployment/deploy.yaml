@@ -62,6 +62,7 @@ steps:
   - name: release
     plugin: fs_release
     settings:
+      subdomain_prefix: demo-strapi2
       basic_auth:
         username: username
         password: password
