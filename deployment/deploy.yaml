@@ -62,7 +62,11 @@ steps:
   - name: release
     plugin: fs_release
     settings:
-      use_alb: true
+      basic_auth:
+        username: username
+        password: password
+        excludes:
+          - "/api/.*"
 
   - name: notify_when_failure
     plugin: slack

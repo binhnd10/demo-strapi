@@ -1,57 +1,37 @@
-# 🚀 Getting started with Strapi
+# demo-strapi-2
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+[![NPM version](https://img.shields.io/npm/v/demo-strapi-2?style=flat-square)](https://www.npmjs.com/package/demo-strapi-2)
+[![downloads](https://img.shields.io/npm/dm/demo-strapi-2?style=flat-square)](https://npmjs.org/package/demo-strapi-2)
 
-### `develop`
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+## Overview
+👀 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores maxime natus sunt! Aliquid est, facilis id inventore iste iusto labore nobis omnis optio repellat velit veritatis! Autem nemo quia totam.
 
+## 🚩 Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#support)
+- [License](#license)
+
+## 🔧 Installation
 ```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
-
-```
-npm run start
-# or
-yarn start
+$ npm install demo-strapi-2
 ```
 
-### `build`
+## 🚀 Usage
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores maxime natus sunt! Aliquid est, facilis id inventore iste iusto labore nobis omnis optio repellat velit veritatis! Autem nemo quia totam.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
-
-```
-npm run build
-# or
-yarn build
+```bash
+$ echo "hello world"
 ```
 
-## ⚙️ Deployment
+## 🎉 Support
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+**Email**: lorem@gmail.com
 
-## 📚 Learn more
+<a href="https://www.buymeacoffee.com/dinhbinh16f" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;" ></a>
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## License
+[MIT](./LICENSE)
