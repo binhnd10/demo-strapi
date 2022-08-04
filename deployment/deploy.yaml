@@ -57,7 +57,7 @@ steps:
       disk:
         size: ${DISK_SIZE}
       use_spot: true
-      command: 'docker login -u dinhbinh161 -p ${DOCKER_PWD} && docker rm -f demo_strapi && docker run --rm --name demo_strapi -p 1337:1337 -d dinhbinh161/demo_strapi'
+      command: 'docker login -u dinhbinh161 -p ${DOCKER_PWD} && docker rm -f demo_strapi && docker run --rm --name demo_strapi -p 80:1337 -d dinhbinh161/demo_strapi'
 
   - name: release
     plugin: fs_release
